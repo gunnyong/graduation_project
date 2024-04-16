@@ -179,20 +179,44 @@
   border: 2px solid black;
 }
 
-.sidebar {
-  height: 100%; /* 전체 높이 */
-  width: 250px; /* 사이드바의 너비 */
-  position: fixed; /* 고정 위치 */
-  z-index: 1; /* 다른 요소 위에 표시 */
-  top: 0; /* 상단에서부터 */
-  right: -250px; /* 초기에는 오른쪽으로 숨김 */
-  background-color: #111; /* 배경색 */
-  overflow-x: hidden; /* 내용이 넘치면 숨김 */
-  transition: 0.5s; /* 너비 변화에 대한 전환 효과 */
-  padding-top: 60px; /* 상단 여백 */
+/* Sidebar2*/
+.show-menu {
+  width: 360px;
+  height: 100%;
+  position: relative;
+  top: 292.5px;
+  right: 350px;
+  transition: 0.5s;
+  background-color:rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  border: 3px solid #282c34;
 }
 
-/* 사이드바가 활성화될 때 적용될 클래스 */
-.sidebar.open {
-  right: 0; /* 사이드바를 화면 안으로 */
+.hide-menu {
+  width: 360px;
+  height: 100%;
+  position: relative;
+  right: -10px;
+  top: 292.5px;
+  transition: 0.5s;
+  border: 3px solid #282c34;
+}
+
+.menuTitle {
+  height: 50px;
+  align-content: center;
+  text-indent: 20px;
+  color: #2D6A4F;
+  background-color: #D8F3DC;
+  border-bottom: 1.5px solid #2D6A4F;
+}
+
+.menuItem {
+  height: 50px;
+  align-content: center;
+  text-indent: 40px;
+}
+
+.marginI{
+  margin-top: 30px !important;
 }

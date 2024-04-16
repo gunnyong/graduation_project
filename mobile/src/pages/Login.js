@@ -21,7 +21,6 @@ const Login = () => {
                 user_ID: userId,
                 password: password
             });
-
             // 로그인 성공 시, /Device로 리다이렉트
             navigate('/Main');
         } catch (error) {
@@ -33,7 +32,9 @@ const Login = () => {
 
     return (
         <div className='greenBack'>
-            <img src="/images/main_art_no.png" alt="자연 지능 화단 로고"  style={{marginBottom:"15px"}}/>
+            <img src="/images/main_art_no.png" alt="자연 지능 화단 로고"  style={{marginBottom:"15px"}} 
+                // 임시로 아이콘 클릭시 메인 화면으로 이동
+                onClick={() => navigate('/Main')}/>
             <div className='whiteBox green3' style={{fontSize:"40px", fontWeight:"bold", width:"300px", height:"70px"}}>
                 자연 지능 화단
             </div>

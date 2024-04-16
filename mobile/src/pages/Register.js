@@ -113,35 +113,45 @@ const Register = () => {
                         />
                     </div>
                 </div>
-                <div className='flex' style={{ justifyContent: "center", marginBottom: "5px" }}>
-                    <div style={{ marginRight: "20px", marginTop: "20px" }}>성별</div>
-                    <div className="whiteBox flex zeroMargin" style={{ width: "200px", height: "50px" }}>
-                    <div className='flex'>
-                    <label htmlFor="male" style={{ marginRight: "20px" }}>
-                        <input
-                        type="radio"
-                        id="male"
-                        name="gender"
-                        value="male"
-                        checked={gender === 'male'}
-                        onChange={handleGenderChange}
-                        style={{ accentColor: 'black' }}
-                        />
-                        남자
-                    </label>
-                    <label htmlFor="female">
-                        <input
-                        type="radio"
-                        id="female"
-                        name="gender"
-                        value="female"
-                        checked={gender === 'female'}
-                        onChange={handleGenderChange}
-                        style={{ accentColor: 'black' }}
-                        />
-                        여자
-                    </label>
-                    </div>
+                <div className='flex' style={{  marginBottom: "10px", marginTop: "-10px" }}>
+                    <div style={{ width:"50px",marginRight: "10px", marginLeft:"-5px", marginTop:"20px" }}>성별</div>
+                    <div className="whiteBox flex zeroMargin" style={{ width: "300px", height: "50px", justifyContent:"center" }}>
+                        <label htmlFor="male" style={{ marginRight: "20px" }}>
+                            <input
+                            type="radio"
+                            id="male"
+                            name="gender"
+                            value="male"
+                            checked={gender === 'male'}
+                            onChange={handleGenderChange}
+                            style={{ accentColor: 'black' }}
+                            />
+                            남자
+                        </label>
+                        <label htmlFor="female" style={{ marginRight: "20px" }}>
+                            <input
+                            type="radio"
+                            id="female"
+                            name="gender"
+                            value="female"
+                            checked={gender === 'female'}
+                            onChange={handleGenderChange}
+                            style={{ accentColor: 'black' }}
+                            />
+                            여자
+                        </label>
+                        <label htmlFor="other">
+                            <input
+                            type="radio"
+                            id="other"
+                            name="gender"
+                            value="other"
+                            checked={gender === 'other'}
+                            onChange={handleGenderChange}
+                            style={{ accentColor: 'black' }}
+                            />
+                            기타
+                        </label>
                     </div>
                 </div>
                 <button type="submit" className='greenButton' style={{ width: "140px", height: "45px" }}>
