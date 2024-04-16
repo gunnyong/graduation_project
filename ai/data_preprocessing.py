@@ -1,43 +1,18 @@
 from PIL import Image, ImageOps, ImageEnhance
+import numpy as np
 import os
 
+
 def augment_image(img, variant):
-    """이미지 데이터 증강"""
-    # 회전
-    img = img.rotate(variant * 90)  # 0, 90, 180, 270도 회전
-
-    # 좌우 반전 (첫 번째와 세 번째 변형에만 적용)
+    img = img.rotate(variant * 90)  # 회전
     if variant % 2 == 0:
-        img = ImageOps.mirror(img)
-
-    # 밝기 조절 (각 변형마다 다른 밝기)
+        img = ImageOps.mirror(img)  # 좌우 반전
     enhancer = ImageEnhance.Brightness(img)
-    brightness_factor = 0.75 + variant * 0.15  # 0.75, 0.90, 1.05, 1.20
+    brightness_factor = 0.75 + variant * 0.15
     img = enhancer.enhance(brightness_factor)
-
     return img
 
-def process_images_in_directory(directory, size=(256, 256)):
-    for entry in os.listdir(directory):
-        full_path = os.path.join(directory, entry)
-        if os.path.isdir(full_path):
-            process_images_in_directory(full_path, size)
-        elif entry.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp', '.gif')):
-            with Image.open(full_path) as img:
-                img_cropped = crop_to_square(img)
-                img_resized = img_cropped.resize(size)
-                img_resized.save(full_path)
-                # 각 이미지에 대해 4개의 증강된 이미지 생성
-                for i in range(4):
-                    img_augmented = augment_image(img_resized, i)
-                    # 파일명에 변형 번호를 추가하여 저장
-                    augmented_filename = f"{os.path.splitext(entry)[0]}_aug_{i}{os.path.splitext(entry)[1]}"
-                    augmented_path = os.path.join(directory, augmented_filename)
-                    img_augmented.save(augmented_path)
-                    print(f"Saved augmented image {augmented_filename}")
-
 def crop_to_square(img):
-    """이미지 center-cropping으로 정사각형 변환"""
     short_side = min(img.size)
     left = (img.width - short_side) / 2
     top = (img.height - short_side) / 2
@@ -45,6 +20,40 @@ def crop_to_square(img):
     bottom = (img.height + short_side) / 2
     return img.crop((left, top, right, bottom))
 
+def process_images_in_directory(directory, size=(256, 256)):
+    data_list = []
+    label_list = []
+
+    for root, dirs, files in os.walk(directory):
+        for file in files:
+            if file.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp', '.gif')):
+                path = os.path.join(root, file)
+                with Image.open(path) as img:
+                    if img.mode != 'RGB':
+                        img = img.convert('RGB')
+                        
+                    img = crop_to_square(img).resize(size)
+                    
+                    # 이미지의 상위 디렉터리명을 레이블로 지정
+                    label = os.path.basename(root)
+                    
+                    # 데이터 증강 후 리스트에 추가
+                    for variant in range(4):
+                        augmented_img = augment_image(img, variant)
+                        augmented_img_np = np.array(augmented_img) / 255.0
+                        data_list.append(augmented_img_np)
+                        label_list.append(label)
+
+    # 리스트 numpy로 변환
+    data_np = np.array(data_list)
+    labels_np = np.array(label_list)
+    
+    return data_np, labels_np
+
 if __name__ == '__main__':
-    root_directory = 'aidata/data_set'
-    process_images_in_directory(root_directory)
+    root_directory = 'aidata'
+    data_np, labels_np = process_images_in_directory(root_directory)
+    print('Data shape:', data_np.shape)
+    print('Labels shape:', labels_np.shape)
+    np.save('data.npy', data_np)
+    np.save('labels.npy', labels_np)

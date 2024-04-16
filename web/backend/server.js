@@ -18,7 +18,7 @@ app.use(helmet())
 app.use(bodyParser.json())
 app.use((error, req, res, next) => {
     if (error instanceof SyntaxError) { // Handle SyntaxError here.
-      console.error('Raw body:', req.rawBody)
+      console.error('Raw body:', req)
       res.status(400).send('Invalid JSON')
     } else {
       next()

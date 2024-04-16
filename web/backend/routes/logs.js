@@ -19,7 +19,7 @@ router.post('/sensor-logs', async (req, res) => {
         res.status(500).json({ message: 'Error creating sensor log' })
     }
     */
-   console.log(req.body)
+   console.log(req)
    res.json({ message: 'Data received successfully' })
 })
 
