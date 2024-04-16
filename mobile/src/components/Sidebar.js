@@ -3,7 +3,7 @@ import '../App.css';
 import Hamburger from 'hamburger-react';
 import { useNavigate } from 'react-router-dom';
 
-const Menu = () => {
+function Sidebar () {
     const navigate = useNavigate();
     const [isOpen, setOpen] = useState(false);
 
@@ -93,4 +93,4 @@ const Menu = () => {
     </div>
     );
 }
-export default Menu;
+export default Sidebar;
