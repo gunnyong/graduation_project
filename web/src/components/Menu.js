@@ -6,12 +6,14 @@ function Menu () {
 
     return (
         <div>
-            <div className="flex" style={{marginTop:"10px"}}>
-                <button type="button" className='greenButton' onClick={() => navigate('/Temp')} style={{ width: "25%", height: "80px", fontSize: "20px"}}>온도<br/>/습도</button>
-                <button type="button" className='greenButton' onClick={() => navigate('/Main')} style={{ width: "25%", height: "80px", fontSize: "20px"}}>LED</button>
-                <button type="button" className='greenButton' onClick={() => navigate('/Main')} style={{ width: "25%", height: "80px", fontSize: "20px"}}>급수<br/>/수위</button>
-                <button type="button" className='greenButton' onClick={() => navigate('/Main')} style={{ width: "25%", height: "80px", fontSize: "20px"}}>토양 습도</button>
-            </div>
+            <div className="menuBox">
+                <button type="button" className='menuButton' onClick={() => navigate('/Main')} style={{marginTop:"20px"}}>메인 화면</button>
+                <button type="button" className='menuButton' onClick={() => navigate('/Inquiry')} >문의 내역</button>
+                <button type="button" className='menuButton' onClick={() => navigate('/User')} >사용자<br/>목록</button>
+                <button type="button" className='menuButton' onClick={() => navigate('/Device')} >디바이스<br/>목록</button>
+                <button type="button" className='menuButton' onClick={() => navigate('/AI')} >AI 관리</button>
+                <button type="button" className='menuButton' onClick={() => navigate('/Flower')} >식물 관리</button>
+                <button type="button" className='menuButton' onClick={() => navigate('/Manager')} >관리자<br/>정보변경</button>            </div>
         </div>
     );
 };
