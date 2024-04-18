@@ -5,7 +5,7 @@ import FlowerList from '../components/FlowerList';
 const FindFlower = () => {
     const navigate = useNavigate();
     return (
-        <div>
+        <div className='mobile'>
             <div className='greenTop'>
                 식물 등록
             </div>

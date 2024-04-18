@@ -1,10 +1,10 @@
 import React from 'react';
-import Menu from '../components/Menu.js';
+import Menu from '../components/Menu';
 
-const Main = () => {
+const WebMain = () => {
 
     return (
-        <div className="back flex">
+        <div className="flex web">
             <Menu />
             <div className='flex'>
                 <div className='contents'>
@@ -23,4 +23,4 @@ const Main = () => {
     );
 };
 
-export default Main;
+export default WebMain;

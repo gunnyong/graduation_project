@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Inquiry = () => {
+const WebInquiry = () => {
     return (
-        <div>
+        <div className='web'>
             dddd
         </div>
     );
 };
 
-export default Inquiry;
+export default WebInquiry;

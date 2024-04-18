@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 const Flower = () => {
     const navigate = useNavigate();
     return (
-        <div className='greenBack'>
+        <div className='mobile greenBack'>
             <img src="/images/main_art_no.png" alt="자연 지능 화단 로고"  style={{marginBottom:"15px"}}/>
             <div className='whiteBox green3' style={{fontSize:"30pt", fontWeight:"bold", width:"300px", height:"70px"}}>
                 자연 지능 화단

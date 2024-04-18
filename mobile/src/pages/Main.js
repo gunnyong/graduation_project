@@ -7,12 +7,12 @@ import DetailButtons from '../components/DetailButtons.js';
 function Main() {
 
     return (
-    <div style={{width:"100%", height:"100%"}}>
+    <div className="mobile">
         <div className='greenTop flex' style={{textAlign:"left", textIndent:"10px"}}>      
             <div style={{position:"absolute"}}>복순의 디바이스</div>
         <div>
         <Sidebar />
-    </div>
+        </div>
         </div>
         <div className='flex'>
             <img className="greenBox" src={flowerData[0].image} alt={flowerData[0].name} style={{ maxHeight: "130px", maxWidth: "130px", padding: "20px", marginTop: "10px" }} />

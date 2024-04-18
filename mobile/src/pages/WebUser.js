@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Flower = () => {
+const WebUser = () => {
     return (
-        <div>
+        <div className='web'>
             d
         </div>
     );
 };
 
-export default Flower;
+export default WebUser;

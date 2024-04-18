@@ -1,11 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const WebLogin = () => {
     const navigate = useNavigate();
     
     return (
-        <div className='flex greenBack'>
+        <div className='web flex webGreenBack'>
             <div style={{height:"1080px"}}>
             {/* 타이틀 */}
             <div className='flex zeroMargin'>
@@ -23,13 +23,13 @@ const Login = () => {
             <div style={{width:"650px", marginLeft:"120px"}}>
                 <div className='label' style={{marginTop:"50px"}}>
                     아이디<br/>
-                    <input className='inputText' type="text" placeholder='Enter ID' style={{}}></input>
+                    <input className='webInputText' type="text" placeholder='Enter ID' style={{}}></input>
                 </div>
                 <div className='label'  style={{marginTop:"50px"}}>
                     비밀번호<br/>
-                    <input className='inputText' type="text" placeholder='Enter Password' style={{}}></input>
+                    <input className='webInputText' type="text" placeholder='Enter Password' style={{}}></input>
                 </div>
-                <button type="button" className='greenButton' onClick={() => navigate('/Main')} style={{margin:"auto", marginTop:"50px"}}>로그인</button>
+                <button type="button" className='webGreenButton' onClick={() => navigate('/WebMain')} style={{margin:"auto", marginTop:"50px"}}>로그인</button>
             </div>
             </div>
             <img src="/images/login.png" alt="로그인 로고"  style={{width:"1050px", position:"relative", right:"65px", top:"170px"}}/>
@@ -37,4 +37,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default WebLogin;

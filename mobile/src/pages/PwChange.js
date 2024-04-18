@@ -5,7 +5,7 @@ const PwChange= () => {
     const navigate = useNavigate();
 
     return (
-        <div className='greenBack'>
+        <div className='mobile greenBack'>
             <div className='greenTop'>
                 비밀번호 변경
             </div>
