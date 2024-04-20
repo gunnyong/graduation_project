@@ -16,7 +16,7 @@ function FlowerInfo() {
 
     if(flower)
     return (
-    <div style={{width:"100%", height:"100%"}}>
+    <div className='mobile'>
         <div className='greenTop'>      
                 식물 상세 정보
         </div>

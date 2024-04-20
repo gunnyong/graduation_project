@@ -46,7 +46,7 @@ const Register = () => {
     };
 
     return (
-        <div className='greenBack'>
+        <div className='mobile greenBack'>
             <div className='greenTop'>회원 가입</div>
             <form onSubmit={handleSubmit}>
                 <div style={{ marginTop: "10px" }}>

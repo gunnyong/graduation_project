@@ -5,7 +5,7 @@ const Certification= () => {
     const navigate = useNavigate();
 
     return (
-        <div className='greenBack'>
+        <div className='greenBack mobile'>
             <div className='greenTop'>
                 인증 화면
             </div>

@@ -23,7 +23,7 @@ const Find = () => {
     };
 
     return (
-        <div>
+        <div className='mobile'>
             <div className='greenTop'>
                 ID / 비밀번호 찾기
             </div>
@@ -35,6 +35,20 @@ const Find = () => {
                     <input className='inputText' type="email" placeholder='Enter E-mail' value={emailForId} onChange={(e) => setEmailForId(e.target.value)}></input>
                 </div>
                 <button type="submit" className='greenButton' onClick={handleFindId} style={{width:"140px", height:"45px", marginTop:"15px"}}>아이디 확인</button>
+            </div>
+
+
+            <div className='greenTitle'>비밀번호 찾기</div>
+            <div className='greenBox' style={{height:"270px"}}>
+                <div style={{marginTop:"10px"}}>
+                    아이디<br/>
+                    <input className='inputText' type="text" placeholder='Enter ID'></input>
+                </div>
+                <div style={{marginTop:"10px"}}>
+                    이메일<br/>
+                    <input className='inputText' type="text" placeholder='Enter E-mail'></input>
+                </div>
+                <button type="submit" className='greenButton' onClick={() => navigate('/PwChange')} style={{width:"140px", height:"45px", marginTop:"15px"}}>비밀번호 확인</button>
             </div>
         </div>
     );

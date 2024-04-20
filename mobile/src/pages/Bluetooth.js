@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 const Bluetooth = () => {
     const navigate = useNavigate();
     return (
-        <div>
+        <div className='mobile'>
             <div className='greenTop'>
                 블루투스 등록
             </div>

@@ -7,7 +7,7 @@ function AI() {
     const navigate = useNavigate();
 
     return (
-    <div style={{width:"100%", height:"100%"}}>
+    <div className='mobile'>
         <div className='greenTop'>      
                 AI 식물 판별 결과
         </div>

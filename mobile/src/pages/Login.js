@@ -22,7 +22,7 @@ const Login = () => {
                 password: password
             });
             // 로그인 성공 시, /Device로 리다이렉트
-            navigate('/Main');
+            navigate('/Device');
         } catch (error) {
             // 에러 처리
             console.error('로그인 실패:', error);
@@ -31,7 +31,7 @@ const Login = () => {
     };
 
     return (
-        <div className='greenBack'>
+        <div className='mobile greenBack'>
             <img src="/images/main_art_no.png" alt="자연 지능 화단 로고"  style={{marginBottom:"15px"}} 
                 // 임시로 아이콘 클릭시 메인 화면으로 이동
                 onClick={() => navigate('/Main')}/>
@@ -55,6 +55,8 @@ const Login = () => {
                 <button type="button" className='greyButton' onClick={() => navigate('/Register')} style={{marginRight:"20px"}}>회원 가입</button>
                 <button type="button" className='greyButton' onClick={() => navigate('/Find')}>ID / PW 찾기</button>
             </div>
+
+            <button type="button" className='greyButton' onClick={() => navigate('/WebLogin')} style={{width:"100%", marginTop:"20px"}}>관리자 웹으로 이동</button>
         </div>
     );
 };
