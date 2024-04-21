@@ -192,11 +192,11 @@
   height: 100%;
   position: relative;
   top: 292.5px;
-  right: 350px;
+  right: 348px;
   transition: 0.5s;
   background-color:rgba(0, 0, 0, 0.3);
   z-index: 1;
-  border: 3px solid #282c34;
+  /* border: 3px solid #282c34; */
 }
 
 .hide-menu {
@@ -206,7 +206,7 @@
   right: -10px;
   top: 292.5px;
   transition: 0.5s;
-  border: 3px solid #282c34;
+  /* border: 3px solid #282c34; */
 }
 
 .menuTitle {
@@ -226,6 +226,45 @@
 
 .marginI{
   margin-top: 30px !important;
+}
+
+.body {
+  height: 505px;
+}
+
+.tableData {
+  background-color:white
+}
+
+.tableHeader {
+  background-color: #52B788;
+  color: white;
+  font-weight: initial;
+  font-size: 17px;
+}
+
+/* 첫 번째 행의 첫 번째 셀 */
+.rounded-table tr:first-child th:first-child,
+.rounded-table tr:first-child td:first-child {
+  border-top-left-radius: 10px;
+}
+
+/* 첫 번째 행의 마지막 셀 */
+.rounded-table tr:first-child th:last-child,
+.rounded-table tr:first-child td:last-child {
+  border-top-right-radius: 10px;
+}
+
+/* 마지막 행의 첫 번째 셀 */
+.rounded-table tr:last-child th:first-child,
+.rounded-table tr:last-child td:first-child {
+  border-bottom-left-radius: 10px;
+}
+
+/* 마지막 행의 마지막 셀 */
+.rounded-table tr:last-child th:last-child,
+.rounded-table tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
 }
 
 
@@ -311,3 +350,4 @@
   font-family: 'main_font';
   box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.3);
 }
+
