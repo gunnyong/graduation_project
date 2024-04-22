@@ -56,8 +56,7 @@ const Login = () => {
                 <button type="button" className='greyButton' onClick={() => navigate('/Register')} style={{marginRight:"20px"}}>회원 가입</button>
                 <button type="button" className='greyButton' onClick={() => navigate('/Find')}>ID / PW 찾기</button>
             </div>
-
-            <button type="button" className='greyButton' onClick={() => navigate('/WebLogin')} style={{width:"100%", marginTop:"20px"}}>관리자 웹으로 이동</button>
+            {/* <button type="button" className='greyButton' onClick={() => navigate('/WebLogin')} style={{width:"100%", marginTop:"20px"}}>관리자 웹으로 이동</button> */}
         </div>
     );
 };

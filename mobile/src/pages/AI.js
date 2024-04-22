@@ -6,16 +6,16 @@ import '../App.css';
 function AI() {
     const navigate = useNavigate();
 
-    useEffect(() => {
-        sendBleApp();
-    },[]);
-    function sendBleApp() {
-        if (window.BleUse) {
-            window.BleUse.postMessage('이 페이지에서 Ble를 사용합니다');
-        } else {
-            console.error('객체를 찾을 수 없음');
-        }
-    }
+    // useEffect(() => {
+    //     sendBleApp();
+    // },[]);
+    // function sendBleApp() {
+    //     if (window.BleUse) {
+    //         window.BleUse.postMessage('이 페이지에서 Ble를 사용합니다');
+    //     } else {
+    //         console.error('객체를 찾을 수 없음');
+    //     }
+    // }
     
     function sendFlowerNameToFlutter() {
         if (window.sendFlowerName) {

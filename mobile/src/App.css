@@ -351,3 +351,103 @@
   box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.3);
 }
 
+.darkTitle {
+  background-color: #33363F;
+  color: white;
+  height: 100px;
+  width: 250px;
+  align-content: center;
+  font-size: 40px;
+  margin: 50px 0 30px 30px;
+  border: none;
+  border-radius: 10px;
+}
+
+.webSearch {
+  width: 89%;
+  height: 80px;
+  margin: 0 0 0 30px;
+  display: flex;
+  background-color: lightgrey;
+  align-items: center;
+  padding: 0 0px 0 20px;
+}
+
+.greyBox {
+  font-size: 32px;
+  width: 200px;
+  height: 70px;
+  background-color: #ADADAD;
+  color: white;
+  align-content: center;
+}
+
+.userContent {
+  height: 60px;
+  width: 200px ;
+  margin-right: 39px;
+  align-content: center;
+}
+
+.linkBorder {
+  display: inline-block;
+  border: 1px solid #6C6868; /* 모든 링크에 테두리를 적용 */
+  border-left: none;
+  border-right: none;
+}
+
+.linkBorder + .linkBorder {
+  border-bottom: none; /* 첫 번째 링크를 제외한 나머지 링크의 왼쪽 테두리를 제거 */
+}
+
+.scrollDelete::-webkit-scrollbar {
+  display: none; /* 스크롤바를 숨깁니다 */
+}
+
+.deviceButton {
+  height: 50px;
+  font-family: 'main_font';
+  border: none;
+  border-radius: 10px;
+  background-color: #E3E3E3;
+  color: #6b6b6b;
+  font-size: 25px;
+}
+
+.tableHeader2 {
+  background-color: #adadad;
+  color: white;
+  font-weight: initial;
+  font-size: 40px;
+  width: 250px;
+  height: 150px;
+}
+
+.tableData2 {
+  font-size: 40px;
+  background-color: #F5F5F5;
+}
+
+.darkButton {
+  background-color: #5A5A5A;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 30px;
+  font-family: 'main_font';
+}
+
+.tableHeader3 {
+  background-color: #adadad;
+  color: white;
+  font-weight: initial;
+  font-size: 25px;
+  width: 200px;
+  height: 70px;
+}
+
+.tableData3 {
+  font-size: 25px;
+  background-color: #ffffff;
+  width: 150px;
+}

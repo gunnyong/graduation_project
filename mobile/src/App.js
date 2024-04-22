@@ -33,6 +33,8 @@ import WebDevice from '../../mobile/src/pages/WebDevice';
 import WebAI from '../../mobile/src/pages/WebAI';
 import WebFlower from '../../mobile/src/pages/WebFlower';
 import WebManager from '../../mobile/src/pages/WebManager';
+import WebUserInfo from './pages/WebUserInfo';
+import WebDeviceInfo from './pages/WebDeviceInfo';
 
 
 function App() {
@@ -85,6 +87,8 @@ return (
             <Route path="/WebAI" element={<WebAI />} />
             <Route path="/WebFlower" element={<WebFlower />} />
             <Route path="/WebManager" element={<WebManager />} />
+            <Route path="/WebUserInfo/:id" element={<WebUserInfo />} />
+            <Route path="/WebDeviceInfo/:id" element={<WebDeviceInfo />} />
         </Routes>
     </Router>
 </div>

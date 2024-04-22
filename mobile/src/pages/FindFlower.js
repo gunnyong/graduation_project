@@ -1,22 +1,33 @@
 import React, {useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import FlowerList from '../components/FlowerList';
-
+import axios from 'axios';
 
 const FindFlower = () => {
     const navigate = useNavigate();
-    const [message, setMessage] = useState(''); // 메시지를 저장할 상태
+    const [deviceName, setDeviceName] = useState(''); // 메시지를 저장할 상태
+    const [message, setMessage] = useState('');
 
     useEffect(() => {
         sendBleApp();
     },[]);
     function sendBleApp() {
         if (window.BleUse) {
-            window.BleUse.postMessage('이 페이지에서 Ble를 사용합니다');
+            axios.get('http://ceprj.gachon.ac.kr:60007/devices/name') // 디바이스 이름을 요청하는 URL
+            .then(response => {
+              // 응답에서 디바이스 이름 가져오기
+            console.log('Server response:', response.data);
+            setDeviceName(response.data.deviceName); // 상태 업데이트
+            window.BleUse.postMessage(response.data.deviceName);
+            })
+            .catch(error => {
+                // 에러 처리
+                console.error('There was an error!', error);
+            });
         } else {
             console.error('객체를 찾을 수 없음');
         }
-    }
+        }
     
     useEffect(() => {
         function handleMessage(event) {

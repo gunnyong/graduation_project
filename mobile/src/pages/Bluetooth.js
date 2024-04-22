@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function sendMessageToFlutterApp() {
     if (window.toApp) {
@@ -17,6 +18,18 @@ const Bluetooth = () => {
         // 메시지의 출처를 확인하는 것이 좋습니다. 예: if (event.origin === "http://example.com")
         console.log("Received message:", event.data);
         setMessage(event.data); // 상태 업데이트
+              // event.data를 사용하여 POST 요청
+        axios.post('http://ceprj.gachon.ac.kr:60007/api/devices/', {
+        data: event.data // event.data를 서버로 전송
+        })
+        .then(response => {
+        // 응답 처리
+        console.log('Server response:', response.data);
+        })
+        .catch(error => {
+        // 에러 처리
+        console.error('There was an error!', error);
+        });
     }
     window.addEventListener("message", handleMessage);
    // 컴포넌트가 언마운트될 때 이벤트 리스너를 정리합니다.
