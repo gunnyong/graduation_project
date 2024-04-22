@@ -49,7 +49,8 @@ const Login = () => {
                 </div>
             </div>
             <div>
-                <button type="button" className='greenButton' onClick={handleSubmit}>로그인</button>
+                {/* <button type="button" className='greenButton' onClick={handleSubmit}>로그인</button> */}
+                <button type="button" className='greenButton' onClick={()=> navigate('/Device')}>로그인</button>
             </div>
             <div>
                 <button type="button" className='greyButton' onClick={() => navigate('/Register')} style={{marginRight:"20px"}}>회원 가입</button>

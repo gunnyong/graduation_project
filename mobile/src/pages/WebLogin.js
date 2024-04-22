@@ -6,7 +6,7 @@ const WebLogin = () => {
     
     return (
         <div className='web flex webGreenBack'>
-            <div style={{height:"1080px"}}>
+            <div>
             {/* 타이틀 */}
             <div className='flex zeroMargin'>
                 <img src="/images/main_art_no.png" alt="자연 지능 화단 로고"  style={{float:"left", width:"250px", margin:"50px", marginRight:"10px"}}/>
