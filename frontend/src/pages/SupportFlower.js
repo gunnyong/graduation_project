@@ -2,7 +2,7 @@ import React from 'react';
 import '../App.css';
 import Sidebar from '../components/Sidebar.js';
 import DetailButtons from '../components/DetailButtons.js';
-import FlowerList2 from '../components/FlowerList.js';
+import FlowerList2 from '../components/FlowerList2.js';
 
 function SupportFlower() {
 

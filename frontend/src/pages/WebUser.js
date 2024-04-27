@@ -19,9 +19,8 @@ const WebUser = () => {
                             <button style ={{width:"10%", height:"100%", fontFamily:"main_font", fontSize:"30px", marginLeft:"20px"}} type="submit">검색</button>
                         </form>
                         <div className='flex'>
-                            <div className='greyBox' style={{margin:"10px 40px 10px 30px"}}>회원 번호</div>
+                            <div className='greyBox' style={{margin:"10px 40px 10px 30px"}}>아이디</div>
                             <div className='greyBox' style={{marginRight:"40px"}}>이름</div>
-                            <div className='greyBox' style={{marginRight:"40px"}}>아이디</div>
                             <div className='greyBox' style={{marginRight:"40px"}}>생년월일</div>
                             <div className='greyBox' style={{marginRight:"40px"}}>디바이스 ID</div>
                             <div className='greyBox' style={{marginRight:"0px"}}>계정 상태</div>

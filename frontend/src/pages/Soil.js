@@ -1,22 +1,22 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import '../App.css';
 import Sidebar from '../components/Sidebar.js';
 import DetailButtons from '../components/DetailButtons.js';
 import SoilChart from '../components/SoilChart.js';
+import axios from 'axios';
 
 function Soil() {
 
-    const detailData = [
-        { time: '10:00', value: 60},
-        { time: '11:00', value: 62},
-        { time: '12:00', value: 50},
-        { time: '13:00', value: 41},
-        { time: '14:00', value: 42},
-        { time: '15:00', value: 65},
-        { time: '16:00', value: 53},
-        { time: '17:00', value: 61},
-      // 더 많은 데이터...
-    ];
+    const [result, setResult] = useState([]);
+    
+    useEffect(() => {
+        axios.get('http://ceprj.gachon.ac.kr:60007/soildata.json')
+        .then(response => {
+            console.log(response.data); 
+            setResult(response.data); // 서버로부터 받은 데이터를 state에 저장
+        })
+        .catch(error => console.log(error));
+      }, []); // 컴포넌트가 마운트될 때 요청을 보냄
 
     return (
         <div className="mobile">
@@ -28,7 +28,7 @@ function Soil() {
         {/* 페이지 내용 */}
         <div className='body'>
             <div style={{width:"95%", height:"300px", margin:"auto"}}>
-                    <SoilChart detailData={detailData} />
+                    <SoilChart detailData={result} />
             </div>
             <div style={{position:"relative", bottom:"15px"}}>
                 <div className="greenTitle">현재 토양 습도</div>

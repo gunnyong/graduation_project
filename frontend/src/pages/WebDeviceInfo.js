@@ -1,22 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Menu from '../components/Menu'
-import userData from '../userData';
-import deviceData from '../deviceData';
+import axios from 'axios';
 
 const WebDeviceInfo = () => {
-    const navigate = useNavigate();
-    const [userInfo, setUserInfo] = useState(null);
+    const [deviceInfo, setDeviceInfo] = useState([]);
     const { id } = useParams(); // useParams 훅을 사용하여 URL 파라미터 접근
 
     useEffect(() => {
-    const selectedUserInfo = userData.find(p => p.id.toString() === id);
-    setUserInfo(selectedUserInfo);
-    }, [id]);
+        axios.get('http://ceprj.gachon.ac.kr:60007/devicedata.json')
+            .then(response => {
+                const device = response.data;
+                const selectedDevice = device.find(p => p.id.toString() === id); // 업데이트된 결과를 바탕으로 선택된 식물을 찾음
+                setDeviceInfo(selectedDevice); // 선택된 식물 상태를 업데이트
+                console.log(selectedDevice);
+            })
+            .catch(error => {
+                console.error('There was an error!', error);
+            });
+    }, [id]); // id가 변경될 때마다 이 useEffect가 실행되어야 하므로, 의존성 배열에 id를 추가
 
-    if(userInfo)
     return (
-
         <div className="flex web">
             <Menu />
             <div className='flex'>
@@ -37,19 +41,19 @@ const WebDeviceInfo = () => {
                         </div>
                         <table style={{width:"100%", height:"65%",padding:"10px 10px 20px 10px", margin:"auto", marginTop:"0px"}}>
                             <tr>
-                            <th className="tableHeader3">디바이스 ID</th> <td className="tableData3">{deviceData[id].id}</td>
-                            <th className="tableHeader3">현재 상태</th> <td className="tableData3">{deviceData[id].status}</td>
+                            <th className="tableHeader3">디바이스 ID</th> <td className="tableData3">{deviceInfo.id}</td>
+                            <th className="tableHeader3">사용자 ID</th> <td className="tableData3">{deviceInfo.userID}</td>
                             </tr>
                             <tr>
-                            <th className="tableHeader3">디바이스 크기</th> <td className="tableData3">2500x3000</td>
-                            <th className="tableHeader3">제품 종류</th> <td className="tableData3">미니 화분2</td>
+                            <th className="tableHeader3">디바이스 이름</th> <td className="tableData3">{deviceInfo.name}</td>
+                            <th className="tableHeader3">기기 정보</th> <td className="tableData3">{deviceInfo.info}</td>
                             </tr>
-                            <tr>
+                            {/* <tr>
                             <th className="tableHeader3">하드웨어</th> <td className="tableData3">라즈베리 파이</td>
                             <th className="tableHeader3">OS 버전</th> <td className="tableData3">ver.1.0.1</td>
-                            </tr>
+                            </tr> */}
                             <tr>
-                            <th className="tableHeader3">모듈 종류</th> <td className="tableData3" colSpan="3">온/습도, 급수, 토양 습도, 팬, 가습기</td>
+                            <th className="tableHeader3">MAC 주소</th> <td className="tableData3" colSpan="3">{deviceInfo.mac}</td>
                             </tr>
                         </table>
                     </div>

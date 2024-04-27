@@ -55,9 +55,9 @@ function Sidebar () {
                     <div style={{background: 'white', zIndex: '1000', color:"grey"}}>
                         <div onClick={() => navigate('')} className="menuItem">
                             - 동작 설정</div>
-                        <div onClick={() => navigate('')} className="menuItem">
+                        <div onClick={() => navigate('/DeviceInfo')} className="menuItem">
                             - 디바이스 상세 정보</div>
-                        <div onClick={() => navigate('')} className="menuItem">
+                        <div onClick={() => navigate('/DeviceName')} className="menuItem">
                             - 디바이스명 변경</div>
                         <div onClick={() => navigate('')} className="menuItem">
                             - 나의 식물 변경</div>
@@ -70,7 +70,7 @@ function Sidebar () {
             <div onClick={() => toggleDropdown('service')} className='menuTitle'>서비스 정보</div>
                 {dropdownStates['service'] && (
                     <div style={{background: 'white', zIndex: '1000', color:"grey"}}>
-                        <div onClick={() => navigate('')} className="menuItem">
+                        <div onClick={() => navigate('/SupportFlower')} className="menuItem">
                             - 지원 식물 정보</div>
                         <div onClick={() => navigate('')} className="menuItem" style={{borderBottom:"1.5px solid #2D6A4F"}}>
                             - 이용 방법</div>

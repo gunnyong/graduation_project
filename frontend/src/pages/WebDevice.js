@@ -20,9 +20,9 @@ const WebDevice = () => {
                         </form>
                         <div className='flex'>
                             <div className='greyBox' style={{margin:"10px 40px 10px 30px"}}>디바이스 ID</div>
-                            <div className='greyBox' style={{marginRight:"40px"}}>사용자 이름</div>
-                            <div className='greyBox' style={{marginRight:"40px"}}>사용자 식물</div>
-                            <div className='greyBox' style={{marginRight:"40px"}}>디바이스 상태</div>
+                            <div className='greyBox' style={{marginRight:"40px"}}>사용자 아이디</div>
+                            <div className='greyBox' style={{marginRight:"40px"}}>디바이스 이름</div>
+                            <div className='greyBox' style={{marginRight:"40px"}}>디바이스 정보</div>
                             <div className='greyBox' style={{width:"410px"}}>디바이스 관리</div>
                         </div>
                         <DeviceList/>
