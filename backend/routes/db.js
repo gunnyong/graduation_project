@@ -18,5 +18,5 @@ dbPool.getConnection()
     .catch((error) => {
         console.error('Database connection failed : ', error)
     })
-
+    
 module.exports = dbPool
