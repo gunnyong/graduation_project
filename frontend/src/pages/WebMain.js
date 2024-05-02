@@ -4,7 +4,7 @@ import Menu from '../components/Menu';
 const WebMain = () => {
 
     return (
-        <div className="flex web">
+        <div className="flex web" style={{width:"100vw", height:"100vh"}}>
             <Menu />
             <div className='flex'>
                 <div className='contents'>

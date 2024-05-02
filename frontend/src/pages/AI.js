@@ -45,7 +45,6 @@ function AI() {
 
     useEffect(() => {
         const plantId = 39;
-
         // const plantId = MyComponent();
 
         axios.get(`http://ceprj.gachon.ac.kr:60007/api/devices/result/${plantId}`)
@@ -80,7 +79,7 @@ function AI() {
 
     return (
     <div className='mobile'>
-        <div className='greenTop'>      
+        <div className='greenTop'>
                 AI 식물 판별 결과
         </div>
         <div>

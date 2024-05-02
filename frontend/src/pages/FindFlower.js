@@ -7,6 +7,7 @@ const FindFlower = () => {
     const navigate = useNavigate();
     const [deviceName, setDeviceName] = useState(''); // 메시지를 저장할 상태
     const [message, setMessage] = useState('');
+    const [plantId, setPlantId] = useState('');
 
     useEffect(() =>{
         function sendBleApp() {
@@ -33,9 +34,10 @@ const FindFlower = () => {
             // 메시지의 출처를 확인하는 것이 좋습니다. 예: if (event.origin === "http://example.com")
             console.log("Received message:", event.data);
             setMessage(event.data); // 상태 업데이트
+            // setPlantId(event.data);
             alert('AI 판별 요청 성공');
-            navigate('/AI');
             // navigate('/AI?plantId='+plantId);
+            navigate('/AI');
         }
         window.addEventListener("message", handleMessage);
        // 컴포넌트가 언마운트될 때 이벤트 리스너를 정리합니다.

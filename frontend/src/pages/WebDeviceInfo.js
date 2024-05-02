@@ -8,15 +8,18 @@ const WebDeviceInfo = () => {
     const { id } = useParams(); // useParams 훅을 사용하여 URL 파라미터 접근
 
     useEffect(() => {
-        axios.get('http://ceprj.gachon.ac.kr:60007/devicedata.json')
+        axios.get(`http://ceprj.gachon.ac.kr:60007/api/admin/devices/${id}`)
             .then(response => {
-                const device = response.data;
-                const selectedDevice = device.find(p => p.id.toString() === id); // 업데이트된 결과를 바탕으로 선택된 식물을 찾음
-                setDeviceInfo(selectedDevice); // 선택된 식물 상태를 업데이트
-                console.log(selectedDevice);
+                if (response.data && !Array.isArray(response.data)) {
+                    // Assuming the response is an object directly containing the device data
+                    setDeviceInfo(response.data);
+                    console.log(response.data);
+                } else {
+                    console.error('Unexpected response format:', response.data);
+                }
             })
             .catch(error => {
-                console.error('There was an error!', error);
+                console.error('There was an error fetching the device data:', error);
             });
     }, [id]); // id가 변경될 때마다 이 useEffect가 실행되어야 하므로, 의존성 배열에 id를 추가
 
@@ -41,17 +44,13 @@ const WebDeviceInfo = () => {
                         </div>
                         <table style={{width:"100%", height:"65%",padding:"10px 10px 20px 10px", margin:"auto", marginTop:"0px"}}>
                             <tr>
-                            <th className="tableHeader3">디바이스 ID</th> <td className="tableData3">{deviceInfo.id}</td>
-                            <th className="tableHeader3">사용자 ID</th> <td className="tableData3">{deviceInfo.userID}</td>
+                            <th className="tableHeader3">디바이스 ID</th> <td className="tableData3">{deviceInfo.device_ID}</td>
+                            <th className="tableHeader3">사용자 ID</th> <td className="tableData3">{deviceInfo.user_ID}</td>
                             </tr>
                             <tr>
                             <th className="tableHeader3">디바이스 이름</th> <td className="tableData3">{deviceInfo.name}</td>
                             <th className="tableHeader3">기기 정보</th> <td className="tableData3">{deviceInfo.info}</td>
                             </tr>
-                            {/* <tr>
-                            <th className="tableHeader3">하드웨어</th> <td className="tableData3">라즈베리 파이</td>
-                            <th className="tableHeader3">OS 버전</th> <td className="tableData3">ver.1.0.1</td>
-                            </tr> */}
                             <tr>
                             <th className="tableHeader3">MAC 주소</th> <td className="tableData3" colSpan="3">{deviceInfo.mac}</td>
                             </tr>

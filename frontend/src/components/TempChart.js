@@ -6,37 +6,33 @@ function TempChart({ detailData }) {
     const chartInstance = useRef(null);
 
     useEffect(() => {
-    
         if (chartInstance.current) {
             chartInstance.current.destroy();
         }
-
+    
         const ctx = chartRef.current.getContext('2d');
         chartInstance.current = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: detailData.map(data => data.time), // 시간 데이터
+                labels: detailData.map(data => data.time),
                 datasets: [{
-                    label: '습도',
-                    data: detailData.map(data => data.value), // 데이터 값
-                    borderColor: '#05C67A',
-                    backgroundColor: '#05C67A',
+                    label: '온도',
+                    data: detailData.map(data => data.tempValue),
+                    borderColor: '#FF9A9A',
+                    backgroundColor: 'rgba(255, 154, 154, 0.5)',
                 },
                 {
-                    label: '온도',
-                    data: detailData.map(data => data.anotherValue), // 두 번째 데이터 값, anotherValue는 새로운 데이터 배열을 가정
-                    borderColor: '#FF9A9A',
-                    backgroundColor: '#FF9A9A', // 새로운 그래프의 배경색
+                    label: '습도',
+                    data: detailData.map(data => data.humiValue),
+                    borderColor: '#05C67A',
+                    backgroundColor: 'rgba(5, 198, 122, 0.5)',
                 }]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                // 이 옵션을 false로 설정하여 원하는 대로 비율을 유지하지 않도록 할 수 있습니다.
                 scales: {
-                    y: {
-                        beginAtZero: true
-                    }
+                    y: { beginAtZero: true }
                 }
             }
         });

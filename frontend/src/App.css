@@ -2,20 +2,25 @@
   text-align: center;
   font-family: 'main_font';
   background-color: white;
-
   font-size: 20px;
 }
 
 .mobile {
-  height: 640px;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
+  padding: 100px 0;
+  max-height: 100%;
+  max-width: 100%;
   margin :auto;
-  border: 2px solid black;
+  /* border: 2px solid black; */
+  align-content: center;
+  box-sizing: border-box;
 }
 
 .web {
-  height: 1080px;
-  width: 1920px;
+  width:100vw;
+  height:100vh;
+  min-height: 720px;
   margin :auto;
   border: 2px solid black;
 }
@@ -188,7 +193,7 @@
 }
 
 .show-menu {
-  width: 360px;
+  width: 100%;
   height: 100%;
   position: relative;
   top: 292.5px;
@@ -205,8 +210,9 @@
   position: relative;
   right: -10px;
   top: 292.5px;
-  transition: 0.5s;
+  transition: 1s;
   /* border: 3px solid #282c34; */
+  display: none;
 }
 
 .menuTitle {
@@ -318,7 +324,7 @@
   width: 300px;
   margin-bottom: 25px;
   flex: 1;
-  font-size: 40px;
+  font-size: 20px;
   border: none;
   border-radius: 10px;
   font-family: 'main_font';
@@ -328,14 +334,16 @@
 .menuBox {
   background-color: #b0b0b0;
   width: 370px;
-  height: 1080px;
+  /* height: 1080px; */
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .contents {
-  height: 1080px;
+  /* height: 1080px; */
+  min-height: 100%;
   width: 1550px;
 }
 
@@ -448,6 +456,6 @@
 
 .tableData3 {
   font-size: 25px;
-  background-color: #F5F5F5;
+  background-color: #ffffff;
   width: 150px;
 }

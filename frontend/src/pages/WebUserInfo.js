@@ -3,39 +3,43 @@ import { useParams, useNavigate } from 'react-router-dom';
 import Menu from '../components/Menu'
 import axios from 'axios';
 
-const deleteUser = () => {
-    // confirm 함수를 사용하여 사용자에게 삭제 확인 요청
-    const isConfirmed = window.confirm('정말 삭제하시겠습니까?');
-    
-    if (isConfirmed) {
-      // 사용자가 '예'를 클릭했을 때의 로직 처리
-    console.log('유저 삭제 처리 로직');
-      // 여기에 실제 디바이스를 삭제하는 API 호출 등의 작업을 수행
-    window.location.reload();
-    } else {
-      // 사용자가 '아니오'를 클릭했을 때의 로직 처리
-    console.log('유저 삭제 취소');
-    }
-};
-
 const WebUserInfo = () => {
     const navigate = useNavigate();
-    const [userInfo, setUserInfo] = useState([]);
-    const { loginID } = useParams(); // useParams 훅을 사용하여 URL 파라미터 접근
-
+    const [userInfo, setUserInfo] = useState(null);
+    const { loginID } = useParams();
 
     useEffect(() => {
-        axios.get('http://ceprj.gachon.ac.kr:60007/userdata.json')
+        axios.get(`http://ceprj.gachon.ac.kr:60007/api/admin/users/${loginID}`)
             .then(response => {
-                const user = response.data;
-                const selectedUser = user.find(p => p.loginID.toString() === loginID);
-                setUserInfo(selectedUser);
-                console.log(selectedUser);
+                setUserInfo(response.data);
             })
             .catch(error => {
                 console.error('There was an error!', error);
             });
     }, [loginID]);
+
+    const deleteUser = () => {
+        const isConfirmed = window.confirm('정말 삭제하시겠습니까?');
+        
+        if (isConfirmed) {
+            axios.delete(`http://ceprj.gachon.ac.kr:60007/api/admin/users/${loginID}`)
+                .then(response => {
+                    console.log('User deleted successfully');
+                    navigate('/WebUser');
+                })
+                .catch(error => {
+                    console.error('There was an error deleting the user!', error);
+                });
+        } else {
+            console.log('User deletion cancelled');
+        }
+    };
+
+    const extractT = (datetimeString) => {
+        const newBirth = datetimeString.split('T')[0];
+        console.log("extractT(userInfo.birth):", newBirth);
+        return newBirth;
+    };
 
     return (
         <div className="flex web">
@@ -47,21 +51,21 @@ const WebUserInfo = () => {
                     </div>
                     <div style={{position:"relative", bottom:"50px"}}>
                     <button type="button" className='darkButton' onClick={deleteUser} style={{width:"200px", height:"70px", marginLeft:"1150px"}}>회원 탈퇴</button>
-                    {userInfo && ( 
+                    {userInfo && (
                     <table style={{width:"90%", height:"65%",padding:"30px 10px 20px 10px", margin:"auto", marginTop:"10px"}}>
                         <tr>
-                        <th className="tableHeader2">회원 ID</th> <td className="tableData2">{userInfo.loginID}</td>
+                        <th className="tableHeader2">회원 ID</th> <td className="tableData2">{userInfo.user_ID}</td>
                         </tr>
                         <tr>
                         <th className="tableHeader2">회원 이름</th> <td className="tableData2">{userInfo.name}</td>
-                        <th className="tableHeader2">성별</th> <td className="tableData2">여자</td>
+                        <th className="tableHeader2">성별</th> <td className="tableData2">{userInfo.gender}</td>
                         </tr>
                         <tr>
-                        <th className="tableHeader2">디바이스 ID</th> <td className="tableData2">{userInfo.deviceID}</td>
-                        <th className="tableHeader2">생년월일</th> <td className="tableData2">{userInfo.birth}</td>
+                        <th className="tableHeader2">디바이스 ID</th> <td className="tableData2">{userInfo.device_ID ? userInfo.device_ID : 'None'}</td>
+                        <th className="tableHeader2">생년월일</th> <td className="tableData2">{extractT(userInfo.birth)}</td>
                         </tr>
                         <tr>
-                        <th className="tableHeader2">가입 날짜</th> <td className="tableData2">2024-04-05</td>
+                        <th className="tableHeader2">가입 날짜</th> <td className="tableData2">{extractT(userInfo.register_date)}</td>
                         <th className="tableHeader2">계정 상태</th> <td className="tableData2">{userInfo.status}</td>
                         </tr>
                     </table>

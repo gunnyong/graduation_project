@@ -28,7 +28,7 @@ function FlowerList2() {
     return (
         <li style={{ listStyleType:"none", fontSize:"20px", width:"100%", maxHeight:"455px", overflowY:"auto", scrollbarColor:"gray"}}>
         {result && Array.isArray(result) && result.map((flower) => {
-            const imageUrl = convertFilePathToUrl(flower.image); // 각 꽃 데이터에 대해 imageUrl 계산
+            const imageUrl = flower && flower.image ? convertFilePathToUrl(flower.image) : '';
             return (
                 <li key={flower.id}>
                     <Link to={`/FlowerDetail/${flower.id}`} style={{ textDecoration: 'none', color: 'black', display: 'flex', alignItems: 'center', backgroundColor:"white"}}>

@@ -35,6 +35,7 @@ import WebFlower from './pages/WebFlower';
 import WebManager from './pages/WebManager';
 import WebUserInfo from './pages/WebUserInfo';
 import WebDeviceInfo from './pages/WebDeviceInfo';
+import WebAddFlower from './pages/WebAddFlower';
 
 
 function App() {
@@ -58,9 +59,9 @@ return (
 <div className="App">
     <Router>
         <Routes>
-        {/* {isMobile ? (
+        {isMobile ? (
             // 모바일
-            <> */}
+            <>
             <Route path="/" element={<Login />} />
             <Route path="/Device" element={<Device />} />
             <Route path="/Flower" element={<Flower />} />
@@ -80,11 +81,11 @@ return (
             <Route path="/Temp" element={<Temp/>} />
             <Route path="/Soil" element={<Soil/>} />
             <Route path="/Water" element={<Water/>} />
-            {/* </>
+            </>
         ) : (
             // 웹
-            <> */}
-            <Route path="/w" element={<WebLogin />} />
+            <>
+            <Route path="/" element={<WebLogin />} />
             <Route path="/WebMain" element={<WebMain />} />
             <Route path="/WebInquiry" element={<WebInquiry />} />
             <Route path="/WebUser" element={<WebUser />} />
@@ -94,8 +95,9 @@ return (
             <Route path="/WebManager" element={<WebManager />} />
             <Route path="/WebUserInfo/:loginID" element={<WebUserInfo />} />
             <Route path="/WebDeviceInfo/:id" element={<WebDeviceInfo />} />
-            {/* </>
-        )} */}
+            <Route path="/WebAddFlower" element={<WebAddFlower />} />
+            </>
+        )}
         </Routes>
     </Router>
 </div>
